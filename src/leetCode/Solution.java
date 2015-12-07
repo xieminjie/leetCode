@@ -1,34 +1,47 @@
 package leetCode;
 
+import java.util.Stack;
+
 public class Solution {
-    public boolean isPalindrome(int x) {
-    	boolean ifPalindrome;
-    	if(x<0){
-     		return ifPalindrome = false;
-    	}
-    	else{
-    		int count = 1;
-    		int multiNum = 1;
-    		int newNum = 0;
-    		int original = x;
-    		while(x%10!=x){
-    			count++;
-    			multiNum = multiNum*10;
-    			x = x/10;
-    		}
-    		x = original;
-    		while(count>0){
-    			newNum = newNum+(x%10)*multiNum;
-    			x = x/10;
-    			multiNum = multiNum/10;
-    			count--;
-    		}
-    		if(newNum==original){
-    			return true;
-    		}else{
-    			return false;
-    		}
-    	}
-        
-    }
+	public boolean isValid(String s) {
+        boolean ifIsValid = true;
+        Stack stack = new Stack();
+        char[] ch = s.toCharArray();
+        for(int i=0;i<ch.length;i++){
+        	if(stack.isEmpty()){
+	        	stack.push(ch[i]);	
+        	}else{
+        		if(ch[i]=='('||ch[i]=='['||ch[i]=='{'){
+        			stack.push(ch[i]);
+        		}else{
+            		if(ch[i]==')'){
+            			if(stack.peek().equals('(')){
+            				stack.pop();
+            			}else{
+            				ifIsValid = false;
+            				break;
+            			}
+            		}else if(ch[i]==']'){
+            			if(stack.peek().equals('[')){
+            				stack.pop();
+            			}else{
+            				ifIsValid = false;
+            				break;
+            			}
+            		}
+            		else if(ch[i]=='}'){
+            			if(stack.peek().equals('{')){
+            				stack.pop();
+            			}else{
+            				ifIsValid = false;
+            				break;
+            			}
+            		}
+        		}
+        	}
+        }
+        if(stack.isEmpty()==false)
+        	ifIsValid = false;
+        return ifIsValid;
+  }
 }

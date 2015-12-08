@@ -6,29 +6,15 @@ import java.util.Stack;
 public class ReverseInteger {
 	public int reverse(int x) {
 		int interger = 0;
-		int mul = 1;
-		boolean flag = false;
-		BigInteger bigInteger = BigInteger.valueOf(x);
-		String str = bigInteger.abs().toString();
-		if(x<0){
-			flag = true;
-			System.out.println(str);
+		boolean flag = x<0;
+		x = Math.abs(x);
+		int max_diff = Integer.MAX_VALUE/10;
+		while(x>0){
+			if(interger>max_diff)
+				return 0;
+			interger = interger*10+x%10;
+			x/=10;
 		}
-	        Stack stack = new Stack();
-	        System.out.println(str);
-	        for(int i=0;i<str.length();i++){
-	        	stack.push(str.charAt(str.length()-i-1));
-	        }
-	        String newStr = null;
-	        while(stack.isEmpty()==false){
-	            newStr = stack.pop().toString();
-	            System.out.println("newStr"+newStr);
-	            int newNum = Integer.parseInt(newStr);
-	            System.out.println("newNum"+newNum);
-	            interger = interger+newNum*mul;
-	            mul = mul*10;
-	        }
-		
-        return interger;
+        return flag? -1*interger:interger;
     }
 }

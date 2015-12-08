@@ -9,33 +9,34 @@ public class ValidParentheses {
         char[] ch = s.toCharArray();
         for(int i=0;i<ch.length;i++){
         	if(stack.isEmpty()){
-	        	stack.push(ch);	
+	        	stack.push(ch[i]);	
         	}else{
-        		if(ch[i]==')'){
-        			if(stack.peek().equals('(')){
-        				stack.pop();
-        			}else{
-        				ifIsValid = false;
-        				break;
-        			}
-        		}else if(ch[i]==']'){
-        			if(stack.peek().equals('[')){
-        				stack.pop();
-        			}else{
-        				ifIsValid = false;
-        				break;
-        			}
-        		}
-        		else if(ch[i]=='}'){
-        			if(stack.peek().equals('{')){
-        				stack.pop();
-        			}else{
-        				ifIsValid = false;
-        				break;
-        			}
+        		if(ch[i]=='('||ch[i]=='['||ch[i]=='{'){
+        			stack.push(ch[i]);
         		}else{
-        			ifIsValid = false;
-    				break;
+            		if(ch[i]==')'){
+            			if(stack.peek().equals('(')){
+            				stack.pop();
+            			}else{
+            				ifIsValid = false;
+            				break;
+            			}
+            		}else if(ch[i]==']'){
+            			if(stack.peek().equals('[')){
+            				stack.pop();
+            			}else{
+            				ifIsValid = false;
+            				break;
+            			}
+            		}
+            		else if(ch[i]=='}'){
+            			if(stack.peek().equals('{')){
+            				stack.pop();
+            			}else{
+            				ifIsValid = false;
+            				break;
+            			}
+            		}
         		}
         	}
         }

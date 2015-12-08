@@ -4,9 +4,9 @@ public class Test {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String test = "([])";
+		int test = 1;
 		Solution solution = new Solution();
-		System.out.println(solution.isValid(test));
+		System.out.println(solution.reverse(test));
 	}
 
 }

@@ -4,45 +4,63 @@ import java.util.Hashtable;
 
 
 public class Solution { 
-	public String convert(String s, int numRows) {
-		StringBuilder sb = new StringBuilder();
-		char[] charArray = s.toCharArray();
-		int count = 2*numRows-2;
-		int number = 0;
-		if(s.length()%count!=0){
-			number = (s.length()/count)+1;
-		}else{
-			number = s.length()/count;
-		}
-		for(int i=0;i<numRows;i++){
-			int pointer = 0;
-			for(int j=0;j<number;j++){
-				if(i==0){
-					sb.append(charArray[pointer]);
-				}else if(i==numRows-1){
-					if(pointer+numRows-1<s.length()){
-						sb.append(charArray[pointer+numRows-1]);
-					}else{
-						j++;
-					}
-				}else{
-					if(pointer+i<s.length()){
-						sb.append(charArray[pointer+i]);
-					}else{
-						j++;
-					}
-					if(pointer+2*numRows-1-i<s.length()){
-						sb.append(sb.append(charArray[pointer+2*numRows-1-i]));
-					}else{
-						j++;
-					}
-				}
-				if(pointer+count<s.length()){
-					pointer+=count;
-				}
-			}
-		}
-		String str = sb.toString();
-		return str;
-	}
+	 public int romanToInt(String s) {
+		 int number = 0;
+		 char[] charArray = s.toCharArray();
+		 for(int i=0;i<s.length();i++){
+			 if(charArray[i]=='I'){
+				 if(++i<s.length()){
+					 if(charArray[i]=='V'){
+						 number = number+4;
+					 }else if(charArray[i]=='X'){
+						 number = number+9;
+					 }else{
+						 number = number+1;
+						 --i;
+					 }
+				 }else{
+					 number = number+1;
+					 --i;
+				 }
+			 }else if(charArray[i]=='V'){
+				 number = number+5;
+			 }else if(charArray[i]=='X'){
+				 if(++i<s.length()){
+					 if(charArray[i]=='L'){
+						 number = number+40;
+					 }else if(charArray[i]=='C'){
+						 number = number+90;
+					 }else{
+						 number = number+10;
+						 --i;
+					 }
+				 }else{
+					 number = number+10;
+					 --i;
+				 }
+			 }else if(charArray[i]=='L'){
+				 number = number +50;
+			 }else if(charArray[i]=='C'){
+				 if(++i<s.length()){
+					 if(charArray[i]=='D'){
+						 number = number+400;
+					 }else if(charArray[i]=='M'){
+						 number = number+900;
+					 }else{
+						 number = number+100;
+						 --i;
+					 }
+				 }else{
+					 number = number+100;
+					 --i;
+				 }
+
+			 }else if (charArray[i]=='D'){
+				 number = number +500;
+			 }else{
+				 number = number +1000;
+			 }
+		 }
+		 return number;
+	 }
 }

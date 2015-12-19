@@ -2,38 +2,47 @@ package leetCode;
 
 import java.util.Hashtable;
 
-/*Given a string, find the length of the longest substring 
- * without repeating characters. For example, the longest 
- * substring without repeating letters for "abcabcbb" is 
- * "abc", which the length is 3. For "bbbbb" the longest 
- * substring is "b", with the length of 1.*/
-/*dvdf*/
+
 public class Solution { 
-	public int lengthOfLongestSubstring(String s) {
-		int maxLength = 0;
-		if(s.length()==0){
-			return 0;
+	public String convert(String s, int numRows) {
+		StringBuilder sb = new StringBuilder();
+		char[] charArray = s.toCharArray();
+		int count = 2*numRows-2;
+		int number = 0;
+		if(s.length()%count!=0){
+			number = (s.length()/count)+1;
+		}else{
+			number = s.length()/count;
 		}
-		Hashtable<Character, Integer> map = new Hashtable<Character, Integer>();
-		int length = 0;
-		int i = 0;
-		int pointer = 0;
-		while(i<s.length()){
-			if(map.containsKey(s.charAt(i))==true){
-				length = i-pointer;
-				pointer=i;
-				if(length>maxLength){
-					maxLength = length;
+		for(int i=0;i<numRows;i++){
+			int pointer = 0;
+			for(int j=0;j<number;j++){
+				if(i==0){
+					sb.append(charArray[pointer]);
+				}else if(i==numRows-1){
+					if(pointer+numRows-1<s.length()){
+						sb.append(charArray[pointer+numRows-1]);
+					}else{
+						j++;
+					}
+				}else{
+					if(pointer+i<s.length()){
+						sb.append(charArray[pointer+i]);
+					}else{
+						j++;
+					}
+					if(pointer+2*numRows-1-i<s.length()){
+						sb.append(sb.append(charArray[pointer+2*numRows-1-i]));
+					}else{
+						j++;
+					}
 				}
-			}else{
-				map.put(s.charAt(i),i);
+				if(pointer+count<s.length()){
+					pointer+=count;
+				}
 			}
-			i++;
 		}
-		length = i-pointer;
-		if(length>maxLength){
-				maxLength = length;
-		}
-		return maxLength;
+		String str = sb.toString();
+		return str;
 	}
 }

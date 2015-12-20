@@ -8,14 +8,12 @@ public class Solution {
 	        Hashtable<Integer,Integer> ht = new Hashtable<Integer,Integer>();
 	        for(int i=0;i<nums.length;i++){
 	        	int rest = target-nums[i];
-	        	if(rest>0){
-	        		if(ht.containsKey(rest)){
-		        		result[0] = ht.get(rest)+1;
-		        		result[1] = i+1;
-		        	}else{
-		        		ht.put(nums[i],i);
-		        	}
-	        	}
+	        	if(ht.get(rest)!=null){
+		       		result[0] = ht.get(rest)+1;
+		       		result[1] = i+1;
+		       	}else{
+		       		ht.put(nums[i],i);
+		       	}
 	        }
 	        return result;
 	 }

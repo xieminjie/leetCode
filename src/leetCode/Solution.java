@@ -4,7 +4,7 @@ import java.util.Hashtable;
 
 public class Solution {
 	public String longestPalindrome(String s) {
-        String str = "";
+       // String str = "";
         int maxPointer = 0;
         int maxLength = 0;
         char[] c = s.toCharArray();
@@ -13,28 +13,28 @@ public class Solution {
         }
         for(int i=0;i<c.length-1;i++){
         	for(int j=c.length-1;j>0;j--){
-        		int count = 0;
+        		int length = 0;
         		int left = i;
         		int right = j;
-        		while(c[left]==c[right]&&left<right){
+        		while(left<right&&c[left]==c[right]){
+        			System.out.println("left "+left);
+        			System.out.println("right "+right);
+            		if(left>=right){
+            			length = j-i+1;
+            			System.out.println("length "+length);
+            		}
+            		if(length>maxLength){
+            			maxLength = length;
+            			maxPointer = i;
+            		}
         			++left;
         			--right;
-        			count+=2;
-        			System.out.println("l "+left);
-        			System.out.println("count "+count);
-        		}
-        		if(count>maxLength){
-        			maxLength = count;
-        			maxPointer = j-maxLength;
+        			if(right-left+1<=maxLength){
+       				 return s.substring(maxPointer, maxPointer+maxLength);
+       				}
         		}
         	}
         }
-        if(c.length%2==0){
-        	maxLength++;
-        }
-       
-        System.out.println("maxPointer+ "+maxPointer);
-        System.out.println("maxLength+ "+maxLength);
         return s.substring(maxPointer, maxPointer+maxLength);
     }
 }

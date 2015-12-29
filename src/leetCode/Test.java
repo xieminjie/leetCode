@@ -11,6 +11,6 @@ public class Test {
 		// TODO Auto-generated method stub
 		int[] array = {1,1,2};
 		Solution solution = new Solution();
-		System.out.println(solution.removeDuplicates(array));
+		System.out.println(solution.myAtoi("1"));
 	}
 }

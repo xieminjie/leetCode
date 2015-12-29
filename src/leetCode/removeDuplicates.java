@@ -2,18 +2,29 @@ package leetCode;
 
 public class removeDuplicates {
 	public int removeDuplicates(int[] nums) {
-        int sameNum =0;
-        int pointer = 0;
+        int pointer=1;
+        int i = 0;
+        boolean flag = false;
         if(nums.length==0){
         	return 0;
         }
-        for(int i=0;i<nums.length;i++){
-        	pointer=i+1;
-        	if(nums[i]==nums[pointer]){
-        		pointer++;
-        		sameNum++;
+        while(pointer<nums.length){
+        	if(nums[i]<nums[pointer]){
+        		if(flag==true){
+        			nums[++i] = nums[pointer];
+        			flag = false;
+        		}else{
+        			i++;
+            		pointer++;
+        		}
+        	}else{
+        		if(flag == false){
+    				flag = true;
+    			}
+    			pointer++;
         	}
         }
-        return nums.length-sameNum;
+        
+        return i+1;
     }
 }

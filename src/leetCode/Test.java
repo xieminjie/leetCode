@@ -11,9 +11,7 @@ public class Test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Solution solution = new Solution();
-		int val = 1;
-		int[] array = {1,1,2};
-		System.out.println(solution.removeElement(array,val));
+		System.out.println(solution.strStr("I am a good man","good"));
 		
 	
 	}

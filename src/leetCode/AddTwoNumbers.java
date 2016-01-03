@@ -1,9 +1,7 @@
 package leetCode;
 
-import java.util.Hashtable;
-
-public class Solution {
-	 public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+public class AddTwoNumbers {
+	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 		 ListNode start = new ListNode(0);
 		 ListNode pointer = start;
 		 Boolean flag = false;

@@ -11,16 +11,10 @@ public class Test {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] array = {3,14,64,1,46};
-		Arrays.sort(array);
-		for(int num:array){
-			System.out.println(num);
-		}
-		int searchVal = 64;
-		int retVal = Arrays.binarySearch(array,searchVal);
-		System.out.println(retVal);
-		//Solution solution = new Solution();
-		//System.out.println(solution.addTwoNumbers(l1,l2));
+		char[][] board =  {{'1',',','1'},{'1',',','1'}};
+		Solution solution = new Solution();
+		System.out.println(solution.isValidSudoku(board));
+		
 		
 	
 	}

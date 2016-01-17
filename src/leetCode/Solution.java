@@ -3,74 +3,41 @@ package leetCode;
 import java.util.Hashtable;
 
 public class Solution {
-	 public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-		 ListNode start = new ListNode(0);
-		 ListNode pointer = start;
-		 Boolean flag = false;
-		 int sum = 0;
-		 if(l1==null){
-			 return l2;
-		 }
-		 if(l2==null){
-			 return l1;
-		 }
-		 if(l1==null&&l2==null){
-			 return null;
-		 }
-		 while(l1!=null&&l2!=null){
-			 if(flag){
-				 sum = l1.val+l2.val+1;
-				 flag = false;
-			 }else{
-				 sum = l1.val+l2.val;
-			 }
-			 if(sum>=10){
-				 sum = sum%10;
-				 flag = true;
-			 }
-			 ListNode node = new ListNode(sum);
-			 pointer.next = node;
-			 l1 = l1.next;
-			 l2 = l2.next;
-			 pointer = pointer.next;
-		 }
-		 while(l1!=null&&l2==null){
-			 if(flag){
-				 sum = l1.val+1;
-				 flag = false;
-			 }else{
-				 sum = l1.val;
-			 }
-			 if(sum>=10){
-				 sum = sum%10;
-				 flag = true;
-			 }
-			 ListNode node = new ListNode(sum);
-			 pointer.next = node;
-			 l1 = l1.next;
-			 pointer = pointer.next;
-		 }
-		 while(l2!=null&&l1==null){
-			 if(flag){
-				 sum = l2.val+1;
-				 flag = false;
-			 }else{
-				 sum = l2.val;
-			 }
-			 if(sum>=10){
-				 sum = sum%10;
-				 flag = true;
-			 }
-			 ListNode node = new ListNode(sum);
-			 pointer.next = node;
-			 l2 = l2.next;
-			 pointer = pointer.next;
-		 }
-		 if(flag){
-			 ListNode node = new ListNode(1);
-			 pointer.next = node;
-			 pointer = pointer.next;
-		 }
-		 return start.next;    
-	 }
+	public boolean isValidSudoku(char[][] board) {
+		Hashtable<Character, Integer> hashtable = new Hashtable();
+		for(int i=0;i<9;i++){
+			hashtable.clear();
+			for(int j=0;j<9;j++){
+				if(board[i][j]!='.'){
+					if(hashtable.containsKey(board[i][j])){
+						return false;
+					}
+					hashtable.put(board[i][j],j);
+				}
+			}
+		}
+		for(int i=0;i<9;i++){
+			hashtable.clear();
+			for(int j=0;j<9;j++){
+				if(board[j][i]!='.'){
+					if(hashtable.containsKey(board[j][i])){
+						return false;
+					}
+					hashtable.put(board[j][i],i);
+				}
+			}
+		}
+		for(int m=0;m<6;m+=3){
+			for(int n=0;n<6;n+=3){
+				for(int i=m;i<m+3;i++)
+					for(int j=n;j<n+3;j++){
+						if(hashtable.containsKey(board[i][j])){
+							return false;
+						}
+						hashtable.put(board[i][i],j);
+					}
+			}
+		}
+		return true;  
+    }
 }

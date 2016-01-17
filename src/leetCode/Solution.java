@@ -1,43 +1,40 @@
 package leetCode;
 
-import java.util.Hashtable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 public class Solution {
-	public boolean isValidSudoku(char[][] board) {
-		Hashtable<Character, Integer> hashtable = new Hashtable();
-		for(int i=0;i<9;i++){
-			hashtable.clear();
-			for(int j=0;j<9;j++){
-				if(board[i][j]!='.'){
-					if(hashtable.containsKey(board[i][j])){
-						return false;
-					}
-					hashtable.put(board[i][j],j);
+	public List<List<Integer>> threeSum(int[] nums) {
+		List result = new ArrayList();
+		if(nums.length==0){
+			return result;
+		}
+		Arrays.sort(nums);
+		if(nums[0]>=0||nums[nums.length-1]<=0){
+			return result;
+		}
+		HashMap map = new HashMap();
+		for(int i=0;i<nums.length;i++){
+			if(map.get(nums[i])==null){
+				map.put(nums[i], null);
+			}
+		}
+		for(int i=0;i<map.size()-2;i++){
+			for(int pointer1 = i+1;pointer1<map.size()-1;pointer1++){
+				int pointer2 = map.
+				int index = map.indexOf(pointer2);
+				if(index!=-1){
+					List r = new ArrayList();
+					r.add(newNumList.get(i));
+					r.add(newNumList.get(pointer1));
+					r.add(newNumList.get(index));
+					result.add(r);
 				}
+				
 			}
 		}
-		for(int i=0;i<9;i++){
-			hashtable.clear();
-			for(int j=0;j<9;j++){
-				if(board[j][i]!='.'){
-					if(hashtable.containsKey(board[j][i])){
-						return false;
-					}
-					hashtable.put(board[j][i],i);
-				}
-			}
-		}
-		for(int m=0;m<6;m+=3){
-			for(int n=0;n<6;n+=3){
-				for(int i=m;i<m+3;i++)
-					for(int j=n;j<n+3;j++){
-						if(hashtable.containsKey(board[i][j])){
-							return false;
-						}
-						hashtable.put(board[i][i],j);
-					}
-			}
-		}
-		return true;  
+		return result;
     }
 }

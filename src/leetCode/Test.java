@@ -11,9 +11,9 @@ public class Test {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		char[][] board =  {{'1',',','1'},{'1',',','1'}};
+		int[] nums= {};
 		Solution solution = new Solution();
-		System.out.println(solution.isValidSudoku(board));
+		System.out.println(solution.threeSum(nums));
 		
 		
 	

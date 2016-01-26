@@ -9,7 +9,7 @@ public class threeSum {
 		List result = new ArrayList();
 		Arrays.sort(nums);
 		if(nums.length<3){
-			return null;
+			return result;
 		}
 		for(int i=0;i<nums.length-2;i++){
 			if(nums[i]>=0){

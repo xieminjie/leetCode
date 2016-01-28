@@ -13,7 +13,7 @@ public class Test {
 		// TODO Auto-generated method stub
 		int[] nums= {};
 		Solution solution = new Solution();
-		System.out.println(solution.threeSum(nums));
+		System.out.println(solution.countAndSay(2));
 		
 		
 	

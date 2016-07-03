@@ -13,7 +13,7 @@ public class Test {
 		// TODO Auto-generated method stub
 		int[] nums= {};
 		Solution solution = new Solution();
-		System.out.println(solution.countAndSay(2));
+		System.out.println(solution.reverseVowels("aA"));
 		
 		
 	

@@ -1,7 +1,7 @@
 package leetCode;
 
-public class Solution {
-    public String reverseVowels(String s) {
+public class reverseVowels {
+	public String reverseVowels(String s) {
         String str = null;
         char[] charArray = new char[s.length()-1];
         int i = 0;

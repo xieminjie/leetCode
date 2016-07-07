@@ -11,11 +11,12 @@ public class Test {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		ListNode li1 = new ListNode(2);
-		ListNode li2 = new ListNode(4);
-		ListNode li3 = new ListNode(6);
-		ListNode li4 = new ListNode(10);
-		ListNode li5 = new ListNode(12);
+		ListNode li1 = new ListNode(1);
+		ListNode li2 = new ListNode(1);
+		ListNode li3 = new ListNode(1);
+		ListNode li4 = new ListNode(1);
+		ListNode li5 = new ListNode(1);
+		
 		
 		li1.next = li2;
 		li2.next = li3;
@@ -24,7 +25,13 @@ public class Test {
 
 		
 		Solution solution = new Solution();
-		solution.deleteNode(li1);
+		solution.removeElements(li1,1);
+		while(li1.next!=null){
+			System.out.println(li1.val);
+			li1 = li1.next;
+		}
+		System.out.println(li1.val);
+		
 	
 	}
 	

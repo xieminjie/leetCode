@@ -8,19 +8,41 @@ import java.util.Map;
 import java.util.Set;
 
 public class Test {
-
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] nums= {};
+		ListNode li1 = new ListNode(2);
+		ListNode li2 = new ListNode(4);
+		ListNode li3 = new ListNode(6);
+		ListNode li4 = new ListNode(10);
+		ListNode li5 = new ListNode(12);
+		
+		li1.next = li2;
+		li2.next = li3;
+		li3.next = li4;
+		li4.next = li5;
+
+		
 		Solution solution = new Solution();
-		System.out.println(solution.reverseVowels("aA"));
-		
-		
+		solution.deleteNode(li1);
 	
 	}
+	
 }
-
-
+//
+//TreeNode node1 = new TreeNode(12);
+//TreeNode node2 = new TreeNode(8);
+//TreeNode node3 = new TreeNode(16);
+//TreeNode node4 = new TreeNode(4);
+//TreeNode node5 = new TreeNode(10);
+//TreeNode node6 = new TreeNode(2);
+//TreeNode node7 = new TreeNode(9);
+//node1.left = node2;
+//node1.right = node3;
+//node2.left = node4;
+//node2.right = node5;
+//node4.left = node6;
+//node5.left = node7;
 
 
 /*	ListNode li1 = new ListNode(2);

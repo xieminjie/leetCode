@@ -1,9 +1,8 @@
 package leetCode;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Solution {
+public class isAnagram {
 	public boolean isAnagram(String s, String t) {
 		HashMap<Character,Integer> hmaps = new HashMap<Character,Integer>();
 		HashMap<Character,Integer> hmapt = new HashMap<Character,Integer>();
@@ -29,5 +28,5 @@ public class Solution {
 			}
 		}
 		return hmapt.equals(hmaps);
-    }
+	}
 }

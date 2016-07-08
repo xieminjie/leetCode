@@ -25,14 +25,8 @@ public class Test {
 
 		
 		Solution solution = new Solution();
-		solution.removeElements(li1,1);
-		while(li1.next!=null){
-			System.out.println(li1.val);
-			li1 = li1.next;
-		}
-		System.out.println(li1.val);
+		System.out.println(solution.isAnagram("","a"));
 		
-	
 	}
 	
 }

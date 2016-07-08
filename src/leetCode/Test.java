@@ -23,9 +23,12 @@ public class Test {
 		li3.next = li4;
 		li4.next = li5;
 
-		
+		int[] nums = {2,3,4,5,6,2,3};
 		Solution solution = new Solution();
-		System.out.println(solution.isAnagram("","a"));
+		int[] n = solution.singleNumber(nums);
+		for(int i=0;i<n.length;i++){
+			System.out.println(n[i]);
+		}
 		
 	}
 	

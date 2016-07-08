@@ -1,33 +1,22 @@
 package leetCode;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
 
 public class Solution {
-	public boolean isAnagram(String s, String t) {
-		HashMap<Character,Integer> hmaps = new HashMap<Character,Integer>();
-		HashMap<Character,Integer> hmapt = new HashMap<Character,Integer>();
-		if(s.length()!=t.length()){
-			return false;
-		}
-		for(int i=0;i<s.length();i++){
-			if(hmaps.containsKey(s.charAt(i))){
-				int count = hmaps.get(s.charAt(i));
-				Integer integer = new Integer(++count);
-				hmaps.put(s.charAt(i), integer);
-			}else{
-				hmaps.put(s.charAt(i), 1);
-			}
-		}
-		for(int i=0;i<t.length();i++){
-			if(hmapt.containsKey(t.charAt(i))){
-				int count = hmapt.get(t.charAt(i));
-				Integer integer = new Integer(++count);
-				hmapt.put(t.charAt(i), integer);
-			}else{
-				hmapt.put(t.charAt(i), 1);
-			}
-		}
-		return hmapt.equals(hmaps);
-    }
+//	 public int titleToNumber(String s) {
+//		 int count = 0;
+//		 if(s.length()==0){
+//			 return count;
+//		 }
+//		 for(int i=0;i<s.length();i++){
+//			 count+=1+s.charAt(i)-'A';
+//		 }
+//		 return count;
+//	 }
+
 }

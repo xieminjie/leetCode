@@ -1,9 +1,11 @@
 package leetCode;
 
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -23,12 +25,15 @@ public class Test {
 		li3.next = li4;
 		li4.next = li5;
 
-		int[] nums = {2,3,4,5,6,2,3};
 		Solution solution = new Solution();
-		int[] n = solution.singleNumber(nums);
-		for(int i=0;i<n.length;i++){
-			System.out.println(n[i]);
-		}
+		int[] nums1 = {1,2,1,2};
+		int[] nums2 = {1,2,1,2};
+		
+		List<Integer> a = new ArrayList();
+		int[] nums = solution.intersect(nums1,nums2);
+//		for(int num:nums){
+//			System.out.println(num.);	
+//		}
 		
 	}
 	

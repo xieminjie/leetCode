@@ -12,22 +12,23 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 public class Solution {
-	 public int missingNumber(int[] nums) {
-			Arrays.sort(nums);
-			if(nums.length==1&&nums[0]==0){
-				return 1;
+	public int rob(int[] nums) {
+		int count = 0;
+		if(nums.length==0){
+			return 0;
+		}
+		if(nums.length==1){
+			return nums[0];
+		}
+		if(nums.length==2){
+			if(nums[0]>=nums[1]){
+				return nums[0];
+			}else{
+				return nums[1];
 			}
-			if(nums[0]==1){
-				return 0;
-			}
-	        int count = 0;
-	        for(int i=0;i<nums.length;i++){
-	        	if(count!=nums[i]){
-	        		return count;
-	        	}
-	        	++count;
-	        }
-	        
-	        return count;
-	    }
+		}
+		int count 
+		return 
+        
+    }
 }

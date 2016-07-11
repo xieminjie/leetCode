@@ -26,11 +26,11 @@ public class Test {
 		li4.next = li5;
 
 		Solution solution = new Solution();
-		int[] nums1 = {1,2,1,2};
+		int[] nums1 = {3,2,2,3};
 		int[] nums2 = {1,2,1,2};
 		
 		List<Integer> a = new ArrayList();
-		int[] nums = solution.intersect(nums1,nums2);
+		int n =  solution.removeElement(nums1,3);
 //		for(int num:nums){
 //			System.out.println(num.);	
 //		}

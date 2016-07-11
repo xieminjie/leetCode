@@ -1,17 +1,12 @@
 package leetCode;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 
-public class Solution {
-	public int[] intersect(int[] nums1, int[] nums2) {
+public class interSect2 {
+	public int[] intersect2(int[] nums1, int[] nums2) {
 		 if(nums1.length==0||nums2.length==0){
 	            int[] array ={};
 				return array;
@@ -59,5 +54,5 @@ public class Solution {
 			 array[i] = arrayList.get(i);
 		 }
 		 return array;
-    }
+   }
 }

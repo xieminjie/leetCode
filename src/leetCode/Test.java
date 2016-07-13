@@ -30,7 +30,7 @@ public class Test {
 		int[] nums2 = {1,2,1,2};
 		
 		List<Integer> a = new ArrayList();
-		int n =  solution.removeElement(nums1,3);
+		boolean n =  solution.isPowerOfThree(1224);
 //		for(int num:nums){
 //			System.out.println(num.);	
 //		}

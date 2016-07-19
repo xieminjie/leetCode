@@ -12,9 +12,13 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 public class Solution {
-	public boolean isPowerOfThree(int n) {
-	     int a =  Integer.bitCount(n);
-	     System.out.println(a);
-	     return false;
-	}
+	// you need to treat n as an unsigned value
+	public int hammingWeight(int n) {
+        int count = 0;
+        while(n!=0){
+            count = count +(n&1);
+            n = n>>>1;
+        }
+        return count;
+    }
 }

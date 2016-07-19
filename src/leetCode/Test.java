@@ -29,8 +29,7 @@ public class Test {
 		int[] nums1 = {3,2,2,3};
 		int[] nums2 = {1,2,1,2};
 		
-		List<Integer> a = new ArrayList();
-		boolean n =  solution.isPowerOfThree(1224);
+		System.out.println(solution.hammingWeight(0));
 //		for(int num:nums){
 //			System.out.println(num.);	
 //		}

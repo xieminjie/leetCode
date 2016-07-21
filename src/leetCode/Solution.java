@@ -12,26 +12,43 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 public class Solution {
-	public int lengthOfLastWord(String s) {
-		if(s.length()==0){
-			return 0;
+	public List<Integer> topKFrequent(int[] nums, int k) {
+		List<Integer> list = new ArrayList<Integer>();
+		HashMap<Integer,Integer> hs = new HashMap();
+		for(int i=0;i<nums.length;i++){
+			if(list.contains(nums[i])){
+				int value = hs.get(nums[i]);
+				hs.put(nums[i], ++value);
+			}else{
+				hs.put(nums[i], 1);
+			}
 		}
-		char[] array = s.toCharArray();
-    	int count = 0;
-    	int lastCount = 0;
-    	boolean flag = false;
-        for(int i=0;i<array.length;i++){
-        	if(Character.isWhitespace(array[i])){
-        		if(flag){
-        			lastCount = count;
-        		}
-        		count = 0;
-        		flag = false;
-        	}else{
-        		count++;
-        		flag = true;
-        	}
-        }
-        return flag==true?count:lastCount;
+		Iterator it = hs.entrySet().iterator();
+		while(it.hasNext()){
+			Map.Entry pair = (Map.Entry<K, V>)
+		}
+		hs.
+		return list;
+		
     }
 }
+//Iterator it = hs1.entrySet().iterator();
+//ArrayList<Integer> arrayList = new ArrayList();
+//while (it.hasNext()) {
+//       Map.Entry pair = (Map.Entry)it.next();
+//       int key = Integer.parseInt(pair.getKey().toString());
+//       int count1 =Integer.parseInt(pair.getValue().toString());
+//       if(hs2.containsKey(key)){
+//       	int count2 = hs2.get(key);
+//       	int countMin = 0;
+//       	if(count1<=count2){
+//       		countMin = count1;
+//       	}else{
+//       		countMin = count2;
+//       	}
+//       	for(int i=0;i<countMin;i++){
+//       		arrayList.add(key);
+//       	}
+//       }
+//       it.remove(); // avoids a ConcurrentModificationException
+//}

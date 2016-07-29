@@ -12,25 +12,34 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 public class Solution {
-	public List<Integer> topKFrequent(int[] nums, int k) {
-		List<Integer> list = new ArrayList<Integer>();
-		HashMap<Integer,Integer> hs = new HashMap();
-		for(int i=0;i<nums.length;i++){
-			if(list.contains(nums[i])){
-				int value = hs.get(nums[i]);
-				hs.put(nums[i], ++value);
-			}else{
-				hs.put(nums[i], 1);
-			}
-		}
-		Iterator it = hs.entrySet().iterator();
-		while(it.hasNext()){
-			Map.Entry pair = (Map.Entry<K, V>)
-		}
-		hs.
-		return list;
-		
-    }
+	 public List<List<Integer>> pathSum(TreeNode root, int sum) {
+	        List<List<Integer>> result = new ArrayList<List<Integer>>();
+	        List<Integer> path = new ArrayList<Integer>();
+	        if(root==null){
+	            return result;
+	        }
+	        BTSearch(root,result,path,0,sum);
+			return result;
+	    }
+	    public void BTSearch(TreeNode root,List<List<Integer>> result,List<Integer> path,int count,int sum){
+	        if(count<sum){
+	            if(root.left==null&&root.right==null){
+	                if(count==sum){
+	                    result.add(path);
+	                }
+	            }
+	            if(root.left!=null){
+	                count+=root.val;
+	                path.add(root.val);
+	                BTSearch(root.left,result,path,count,sum);
+	            }
+	            if(root.right!=null){
+	                count+=root.val;
+	                path.add(root.val);
+	                BTSearch(root.right,result,path,count,sum);
+	            }
+	        }
+	    }
 }
 //Iterator it = hs1.entrySet().iterator();
 //ArrayList<Integer> arrayList = new ArrayList();

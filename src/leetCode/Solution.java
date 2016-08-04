@@ -12,35 +12,22 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 public class Solution {
-	 public List<List<Integer>> pathSum(TreeNode root, int sum) {
-	        List<List<Integer>> result = new ArrayList<List<Integer>>();
-	        List<Integer> path = new ArrayList<Integer>();
-	        if(root==null){
-	            return result;
-	        }
-	        BTSearch(root,result,path,0,sum);
-			return result;
-	    }
-	    public void BTSearch(TreeNode root,List<List<Integer>> result,List<Integer> path,int count,int sum){
-	        if(count<sum){
-	            if(root.left==null&&root.right==null){
-	                if(count==sum){
-	                    result.add(path);
-	                }
-	            }
-	            if(root.left!=null){
-	                count+=root.val;
-	                path.add(root.val);
-	                path.re
-	                BTSearch(root.left,result,path,count,sum);
-	            }
-	            if(root.right!=null){
-	                count+=root.val;
-	                path.add(root.val);
-	                BTSearch(root.right,result,path,count,sum);
-	            }
-	        }
-	    }
+	public int lengthOfLongestSubstring(String s) {
+        int n = s.length();
+        Set<Character> set = new HashSet<>();
+        int ans = 0, i = 0, j = 0;
+        while (i < n && j < n) {
+            // try to extend the range [i, j]
+            if (!set.contains(s.charAt(j))){
+                set.add(s.charAt(j++));
+                ans = Math.max(ans, j - i);
+            }
+            else {
+                set.remove(s.charAt(i++));
+            }
+        }
+        return ans;
+    }
 }
 //Iterator it = hs1.entrySet().iterator();
 //ArrayList<Integer> arrayList = new ArrayList();

@@ -29,7 +29,7 @@ public class Test {
 		int[] nums1 = {3,2,2,3};
 		int[] nums2 = {1,2,1,2};
 		
-		System.out.println(solution.isIsomorphic("ABC","ABC"));
+		System.out.println(solution.lengthOfLongestSubstring("abb"));
 //		for(int num:nums){
 //			System.out.println(num.);	
 //		}

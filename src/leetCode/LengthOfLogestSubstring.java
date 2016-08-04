@@ -1,33 +1,22 @@
 package leetCode;
 
+import java.util.HashMap;
 import java.util.Hashtable;
 
 public class LengthOfLogestSubstring {
 	public int lengthOfLongestSubstring(String s) {
-		int maxLength = 0;
 		if(s.length()==0){
 			return 0;
 		}
-		Hashtable<Character, Integer> map = new Hashtable<Character, Integer>();
-		int length = 0;
-		int i = 0;
-		int pointer = 0;
-		while(i<s.length()){
-			if(map.containsKey(s.charAt(i))==true){
-				length = i-pointer;
-				pointer=i;
-				if(length>maxLength){
-					maxLength = length;
-				}
-			}else{
-				map.put(s.charAt(i),i);
+		HashMap<Character,Integer> hs = new HashMap<Character,Integer>();
+		int max = 0;
+		for(int i=0,j=0;i<s.length();++i){
+			if(hs.containsKey(s.charAt(i))){
+				j = Math.max(j,hs.get(s.charAt(i))+1);
 			}
-			i++;
+			hs.put(s.charAt(i),i);
+			max = Math.max(max, i-j+1);
 		}
-		length = i-pointer;
-		if(length>maxLength){
-				maxLength = length;
-		}
-		return maxLength;
+		return max;
 	}
 }

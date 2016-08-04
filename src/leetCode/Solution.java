@@ -31,6 +31,7 @@ public class Solution {
 	            if(root.left!=null){
 	                count+=root.val;
 	                path.add(root.val);
+	                path.re
 	                BTSearch(root.left,result,path,count,sum);
 	            }
 	            if(root.right!=null){

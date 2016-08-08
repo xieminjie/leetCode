@@ -10,23 +10,25 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.Stack;
 
 public class Solution {
-	public int lengthOfLongestSubstring(String s) {
-        int n = s.length();
-        Set<Character> set = new HashSet<>();
-        int ans = 0, i = 0, j = 0;
-        while (i < n && j < n) {
-            // try to extend the range [i, j]
-            if (!set.contains(s.charAt(j))){
-                set.add(s.charAt(j++));
-                ans = Math.max(ans, j - i);
-            }
-            else {
-                set.remove(s.charAt(i++));
-            }
-        }
-        return ans;
+	public int countNumbersWithUniqueDigits(int n) {
+		int[] array = new int[n+1];
+		if(n==0){
+			return 1;
+		}
+		if(n==1){
+			return 10;
+		}
+		array[0] = 1;
+		array[1] = 9;
+		int result=10;
+		for(int i=2;i<=n;i++){
+			array[i] = array[i-1]*(9-n+2);
+			result+=array[i];
+		}
+		return result;
     }
 }
 //Iterator it = hs1.entrySet().iterator();

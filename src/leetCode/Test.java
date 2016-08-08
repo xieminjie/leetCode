@@ -26,10 +26,10 @@ public class Test {
 		li4.next = li5;
 
 		Solution solution = new Solution();
-		int[] nums1 = {3,2,2,3};
-		int[] nums2 = {1,2,1,2};
+		int[] nums1 = {1,3,5,6};
+		int[] nums2 = {2,3,4};
 		
-		System.out.println(solution.lengthOfLongestSubstring("abb"));
+		System.out.println(solution.countNumbersWithUniqueDigits(2));
 //		for(int num:nums){
 //			System.out.println(num.);	
 //		}
